@@ -1,0 +1,7 @@
+---
+- name: Instal yum Vector
+  become: true
+  ansible.builtin.yum:
+    name: https://packages.timber.io/vector/0.22.2/vector-0.22.2-1.x86_64.rpm
+  state: present
+  notify: restart vector

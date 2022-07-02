@@ -1,0 +1,12 @@
+---
+- name: Configure Vector
+  ansible.builtin.file:
+    path: "{{ vector_config_dir }}"
+    state: directory
+
+- name: Template config
+  become: true
+  ansible.builtin.template:
+    src: templates/vector.toml
+    dest: "{{ vector_config_dir }}/vector.toml"
+    mode: 0765
